@@ -12,10 +12,6 @@
   </div>
   @endif
 
-
-
-
-
   <table class="table">
   <thead>
     <tr>
@@ -26,9 +22,7 @@
   </thead>
   <tbody>
   <tr>
-  <th>{{$ask->my_number}}</th>
-  <td>{{$ask->your_name}}</td>
-  <td>{{$ask->birthday}}</td>
+  <th>{{$my_number}}</th>
   </tr>
   </tbody>
 </table>

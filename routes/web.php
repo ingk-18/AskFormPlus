@@ -20,7 +20,7 @@ Route::get('/', function () {
 // ]);
 
 Route::get('ask/index','AskFormController@index');
-Route::get('ask/show/{my_number}','AskFormController@show');
+Route::post('ask/show','AskFormController@show');
 
 
 Auth::routes();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AskForm;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class AskFormController extends Controller
 {
@@ -24,10 +25,10 @@ class AskFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -45,14 +46,19 @@ class AskFormController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function show($my_number)
-    {
-        //
-        $ask = AskForm::find($my_number);
-        return view('ask.show',compact('ask'));
-    }
+     */    
+    
 
+    public function show(Request $request){ // DIの記述必須
+        $my_number = $request['my_number'];
+        return view('ask.show',compact('my_number'));
+    }
+    
+    
+
+
+            
+            
     /**
      * Show the form for editing the specified resource.
      *

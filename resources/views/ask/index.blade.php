@@ -11,7 +11,7 @@
   @endforeach
   </div>
   @endif
-  <form method="GET" action="">
+  <form method="POST" action="{{url('ask/show')}}">
   <div class="form-group">
   <label for="password">マイナンバー</lavel>
   <input type="password" name="my_number">
