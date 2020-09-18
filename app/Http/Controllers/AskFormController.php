@@ -49,9 +49,16 @@ class AskFormController extends Controller
      */    
     
 
-    public function show(Request $request){ // DIの記述必須
-        $my_number = $request['my_number'];
-        return view('ask.show',compact('my_number'));
+    public function show(Request $request){
+
+        $my_number = $request->input('my_number');
+
+        $users = DB::table('ask_forms')
+        // 名前が入力されていたら以下を実行
+        ->when($my_number, function ($query) use ($my_number){
+            return $query->where('my_number', $my_number); 
+            })->get();
+    
     }
     
     

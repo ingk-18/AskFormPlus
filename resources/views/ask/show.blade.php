@@ -21,9 +21,11 @@
     </tr>
   </thead>
   <tbody>
+  @foreach($users as $user)
   <tr>
-  <th>{{$my_number}}</th>
+  <th>{{$user->my_number}}</th>
   </tr>
+  @endforeach
   </tbody>
 </table>
 
