@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::get('ask/index','AskFormController@index');
 Route::post('ask/show','AskFormController@show');
+Route::post('ask/consult','AskFormController@consult');
 
 
 Auth::routes();

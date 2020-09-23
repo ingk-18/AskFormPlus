@@ -23,13 +23,15 @@
   <tbody>
   @foreach($users as $user)
   <tr>
-  <th>{{$user->my_number}}</th>
+  <th>{{ $user->my_number }}</th>
+  <th>{{ $user->your_name }}</th>
+  <th>{{ $user->birthday }}</th>
   </tr>
   @endforeach
   </tbody>
 </table>
 
-  <form action = "" method="POST">
+<form method="POST" action="{{url('ask/consult')}}">
   <button type="submit">相談する</button>
   {{ csrf_field() }}
   </form>

@@ -54,14 +54,39 @@ class AskFormController extends Controller
         $my_number = $request->input('my_number');
 
         $users = DB::table('ask_forms')
-        // 名前が入力されていたら以下を実行
+        // ask_formsテーブルの中から
         ->when($my_number, function ($query) use ($my_number){
+            //インプットしたマイナンバーとDBのマイナンバーが一緒の時
             return $query->where('my_number', $my_number); 
+            //クエリのマイナンバーと一致する人を取得する。
             })->get();
-    
+
+        return view('ask.show',compact('users'));
+        
+        //dd($users);
     }
     
+    public function consult(Request $request){
+
+    $msg = ['body' => '送信メッセージ'];
     
+    $token = 'c22509623b12db06f5cfe10131417ff4';
+    
+    $room = '200545640';
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HTTPHEADER,
+                array('X-ChatWorkToken:',$token));
+    curl_setopt($ch, CURLOPT_URL, "https://api.chatwork.com/v2/".$room."/messages");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($msg));
+    $result = curl_exec($ch);
+    curl_close($ch);
+
+    return view('ask.consult');
+
+    }
 
 
             
