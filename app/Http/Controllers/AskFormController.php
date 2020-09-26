@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\AskForm;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Log;
 
 class AskFormController extends Controller
 {
@@ -61,28 +62,29 @@ class AskFormController extends Controller
             //クエリのマイナンバーと一致する人を取得する。
             })->get();
 
-        return view('ask.show',compact('users'));
-        
+        return view('ask.show',compact('users'));        
         //dd($users);
     }
     
     public function consult(Request $request){
 
-    $msg = ['body' => '送信メッセージ'];
-    
-    $token = 'c22509623b12db06f5cfe10131417ff4';
-    
-    $room = '200545640';
+    $msg = ['body' => 'テストメッセージ'];
+
+    $room = '200722280'; 
+
+    $token = '80a8dffe4be1ee29583495844541d87e';
     
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPHEADER,
-                array('X-ChatWorkToken:',$token));
-    curl_setopt($ch, CURLOPT_URL, "https://api.chatwork.com/v2/".$room."/messages");
+                array('X-ChatWorkToken:'.$token));
+    curl_setopt($ch, CURLOPT_URL, "https://api.chatwork.com/v2/rooms/200722280/messages");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($msg));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($msg, '', '&'));
     $result = curl_exec($ch);
     curl_close($ch);
+
+    //dd($result);
 
     return view('ask.consult');
 
