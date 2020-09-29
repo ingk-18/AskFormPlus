@@ -68,6 +68,23 @@ class AskFormController extends Controller
     
     public function consult(Request $request){
 
+    $my_number = $request->input('my_number');
+
+    $users = DB::table('ask_forms')
+    ->when($my_number, function ($query) use ($my_number){
+        return $query->where('my_number', $my_number); 
+        })->get();
+
+        // $your_name = $users->your_name;
+        // dd($your_name);
+    
+        // @foreach($users as $user)
+        // {{ $user->my_number }}
+        // {{ $user->your_name }}
+        // {{ $user->birthday }}
+        // @endforeach
+
+
     $msg = ['body' => 'テストメッセージ'];
 
     $room = '200722280'; 

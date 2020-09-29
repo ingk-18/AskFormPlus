@@ -20,7 +20,7 @@
   <label for="password">暗証番号</label>
   <input type="pussword" name="password">
   </div>
-  <button type="submit">ログイン</button>
+  <button type="submit" >ログイン</button>
   {{ csrf_field() }}
   </form>
   </div>

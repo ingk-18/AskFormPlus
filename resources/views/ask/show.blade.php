@@ -30,9 +30,9 @@
   @endforeach
   </tbody>
 </table>
-
 <form method="POST" action="{{url('ask/consult')}}">
   <button type="submit">相談する</button>
+  <input type="hidden" name="my_number" value= "{{ $user->my_number }}" >
   {{ csrf_field() }}
   </form>
 
