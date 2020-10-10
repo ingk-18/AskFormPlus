@@ -4,13 +4,16 @@
   <div class="row justify-content-center">
   <div class="col-md-8">
   <h1>ログイン</h1>
-  @if(count($errors) >0)
-  <div class="alert alert-danger"> //bootstrap 警告表示
-  @foreach($errors->all() as $error)
-  <p>{{ $error }}</p>
-  @endforeach
-  </div>
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
   @endif
+
   <form method="POST" action="{{url('ask/show')}}">
   <div class="form-group">
   <label for="password">マイナンバー</lavel>

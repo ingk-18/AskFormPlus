@@ -7,6 +7,7 @@ use App\Models\AskForm;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Log;
+use App\Http\Requests\ShowAskForm;
 
 class AskFormController extends Controller
 {
@@ -50,17 +51,16 @@ class AskFormController extends Controller
      */    
     
 
-    public function show(Request $request){
+    public function show(ShowAskForm $request){
 
         $my_number = $request->input('my_number');
 
         $users = DB::table('ask_forms')
-        // ask_formsテーブルの中から
-        ->when($my_number, function ($query) use ($my_number){
-            //インプットしたマイナンバーとDBのマイナンバーが一緒の時
-            return $query->where('my_number', $my_number); 
-            //クエリのマイナンバーと一致する人を取得する。
-            })->get();
+        ->when($my_number, function ($query) use ($my_number){return $query
+        ->where('my_number', $my_number);})
+        ->get();
+        
+        //whenで$my_numberがあるとき、whereでクエリと合致しているデータをgetで取得する
 
         return view('ask.show',compact('users'));        
         //dd($users);
@@ -73,35 +73,27 @@ class AskFormController extends Controller
     $users = DB::table('ask_forms')
     ->when($my_number, function ($query) use ($my_number){
         return $query->where('my_number', $my_number); 
-        })->get();
+        })->first();
 
-        // $your_name = $users->your_name;
-        // dd($your_name);
-    
-        // @foreach($users as $user)
-        // {{ $user->my_number }}
-        // {{ $user->your_name }}
-        // {{ $user->birthday }}
-        // @endforeach
+    $your_name = $users->your_name;
 
+    $call = "マイナンバー".$my_number." ".$your_name."さんからご相談が入っています。担当者は確認してください。";
 
-    $msg = ['body' => 'テストメッセージ'];
+    $msg = ['body' => $call];
 
-    $room = '200722280'; 
+    $room = env('CHATWORK_ROOM');
 
-    $token = '80a8dffe4be1ee29583495844541d87e';
+    $token = env('CHATWORK_TOKEN');
     
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPHEADER,
                 array('X-ChatWorkToken:'.$token));
-    curl_setopt($ch, CURLOPT_URL, "https://api.chatwork.com/v2/rooms/200722280/messages");
+    curl_setopt($ch, CURLOPT_URL, "https://api.chatwork.com/v2/rooms/".$room."/messages");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($msg, '', '&'));
     $result = curl_exec($ch);
     curl_close($ch);
-
-    //dd($result);
 
     return view('ask.consult');
 
