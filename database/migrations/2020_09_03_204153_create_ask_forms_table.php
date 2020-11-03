@@ -18,7 +18,7 @@ class CreateAskFormsTable extends Migration
             //氏名
             $table->string('your_name', 20);
             //マイナンバー　12桁
-            $table->unsignedInteger('my_number',);
+            $table->bigInteger('my_number',);
             //パスワード4桁
             $table->unsignedInteger('password');
             //生年月日
