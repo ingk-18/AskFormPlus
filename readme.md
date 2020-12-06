@@ -10,7 +10,7 @@
 * 開発言語：PHP 7.4.7
 * フレームワーク：Laravel
 * データベース：Mysql
-* サーバー：AWS
+* サーバー：AWS　詳細（https://cats-latte.com/?p=218&preview=true&_thumbnail_id=219）
 
 # Usage
 INDEX画面でマイナンバーとパスワードを入力し、確認画面に進む。確認が出来たら「担当者を呼ぶ」ボタンを押す。
