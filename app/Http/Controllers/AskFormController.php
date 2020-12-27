@@ -27,10 +27,10 @@ class AskFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function create()
-    // {
-    //     //
-    // }
+     public function create()
+     {
+        return view('ask.create');
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -40,7 +40,15 @@ class AskFormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $your_name = $request->input('your_name');
+        $my_number = $request->input('my_number');
+        $password = $request->input('password');
+        $birthday = $request->input('birthday');
+        $address = $request->input('address');
+        $gender = $request->input('gender');
+
+        dd($your_name,$my_number,$password,$birthday,$address,$gender );
+
     }
 
     /**

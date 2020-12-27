@@ -23,6 +23,8 @@ class CreateAskFormsTable extends Migration
             $table->unsignedInteger('password');
             //生年月日
             $table->date('birthday',);
+            //住所
+            $table->string('address', 100);
             //性別
             $table->boolean('gender');
             $table->timestamps();

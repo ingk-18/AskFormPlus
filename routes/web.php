@@ -20,6 +20,8 @@ Route::get('/', function () {
 // ]);
 
 Route::get('ask/index','AskFormController@index');
+Route::get('ask/create','AskFormController@create');
+Route::post('ask/store','AskFormController@store');
 Route::post('ask/show','AskFormController@show');
 Route::post('ask/consult','AskFormController@consult');
 
