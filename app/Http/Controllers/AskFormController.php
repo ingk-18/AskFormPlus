@@ -38,6 +38,14 @@ class AskFormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function show_admin(Request $request)
+    {
+        $inputs = $request->all();
+        return view('ask.show_admin', compact('inputs'));
+    }
+
+
     public function store(Request $request)
     {
         $your_name = $request->input('your_name');
@@ -47,8 +55,8 @@ class AskFormController extends Controller
         $address = $request->input('address');
         $gender = $request->input('gender');
 
-        dd($your_name,$my_number,$password,$birthday,$address,$gender );
-
+        // dd($your_name,$my_number,$password,$birthday,$address,$gender );
+                
     }
 
     /**

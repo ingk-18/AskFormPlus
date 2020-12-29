@@ -16,7 +16,7 @@
                 </div>
                 @endif
                 <div class="card-body">
-                    <form method="POST" action="{{url('ask/store')}}" >
+                    <form method="POST" action="{{url('ask/show_admin')}}" >
 
                         <div class="form-group row text-md-right">
                             <label for="password" class="col-md-4 col-form-label">{{ __('氏名') }}</label>
