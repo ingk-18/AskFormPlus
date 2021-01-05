@@ -24,9 +24,9 @@ class CreateAskFormsTable extends Migration
             //生年月日
             $table->date('birthday',);
             //住所
-            $table->string('address', 100);
+            $table->string('address', 255);
             //性別
-            $table->boolean('gender');
+            $table->string('gender');
             $table->timestamps();
         });
     }

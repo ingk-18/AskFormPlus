@@ -19,31 +19,27 @@
                 　<table class="table">
                   <thead>
                     <tr>
+                      <th scope="col">ID</th>
                       <th scope="col">マイナンバー</th>
                       <th scope="col">お名前</th>
-                      <th scope="col">生年月日</th>
+                      <th scope="col">詳細</th>
+
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach($users as $user)
+
+
+                  @foreach($edit_users as $edit_user)
                   <tr>
-                  <th>{{ $user->my_number }}</th>
-                  <th>{{ $user->your_name }}</th>
-                  <th>{{ $user->birthday }}</th>
+                  <th>{{ $edit_user->id }}</th>
+                  <th>{{ $edit_user->my_number }}</th>
+                  <th>{{ $edit_user->your_name }}</th>
+                  <th><a href="{{url('ask/show_detail',['id' => $edit_user->id])}}">詳細をみる</a></th>
                   </tr>
                   @endforeach
                   </tbody>
                 　</table>
-               　　 <form method="POST" action="{{url('ask/store')}}">
-                            <div class="form-group row mb-8" >
-                              <div class="col-md-11" style="text-align:left">
-                                <button type="submit" class="btn btn-primary">{{ __('担当者を呼び出す') }}</button>
-                                <button type="button" onclick="history.back()" class="btn btn-primary">{{ __('戻る') }}</button>
-                              </div>
-                            </div>
-                        <input type="hidden" name="my_number" value= "{{ $user->my_number }}" >
-                        {{ csrf_field() }}
-                    </form>
+
                 </div>
             </div>
             <br/>

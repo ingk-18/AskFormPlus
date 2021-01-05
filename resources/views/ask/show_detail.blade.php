@@ -25,47 +25,42 @@
                       </thead>
                       <tr>
                       <th scope="col">氏名</th>
-                      <td>{{ $inputs['your_name']}}</td>
+                      <td>{{ $users->your_name}}</td>
                       </tr>
 
                       <tr>
                       <th scope="col">マイナンバー</th>
-                      <td>{{ $inputs['my_number']}}</td>
+                      <td>{{ $users->my_number}}</td>
                       </tr>
 
                       <tr>
                       <th scope="col">暗証番号</th>
-                      <td>{{ $inputs['password']}}</td>
+                      <td>{{ $users->password}}</td>
                       </tr>
 
                       <tr>
                       <th scope="col">生年月日</th>
-                      <td>{{ $inputs['birthday']}}</td>
+                      <td>{{ $users->birthday}}</td>
                       </tr>
 
                       <tr>
                       <th scope="col">住所</th>
-                      <td>{{ $inputs['address']}}</td>
+                      <td>{{ $users->address}}</td>
                       </tr>
 
                       <tr>
                       <th scope="col">性別</th>
-                      <td>{{ $inputs['gender']}}</td>
+                      <td>{{ $users->gender }}</td>
                       </tr>
                       </table>
-                      　　 <form method="POST" action="{{url('ask/store')}}">
+                      　　 <form method="GET" action="{{url('ask/edit',['id'=>$users->id])}}">
                             <div class="form-group row mb-8" >
                               <div class="col-md-11" style="text-align:left">
-                                <button type="submit" class="btn btn-primary">{{ __('登録する') }}</button>
+                                <button type="submit" class="btn btn-primary">{{ __('変更する') }}</button>
                                 <button type="button" onclick="history.back()" class="btn btn-primary">{{ __('戻る') }}</button>
                               </div>
                             </div>
-                        <input type="hidden" name="your_name" value= "{{ $inputs['your_name']}}" >
-                        <input type="hidden" name="my_number" value= "{{ $inputs['my_number']}}" >
-                        <input type="hidden" name="password" value= "{{ $inputs['password']}}" >
-                        <input type="hidden" name="birthday" value= "{{ $inputs['birthday']}}" >                        
-                        <input type="hidden" name="address" value= "{{ $inputs['address']}}" >
-                        <input type="hidden" name="gender" value= "{{ $inputs['gender']}}" >
+
                         {{ csrf_field() }}
                     </form>
                 </div>

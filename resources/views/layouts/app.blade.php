@@ -34,7 +34,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{{url('ask/create')}}">ユーザー登録</a>
-                        <a class="dropdown-item" href="#">ユーザー情報編集</a>
+                        <a class="dropdown-item" href="{{url('ask/show_edit')}}">ユーザー情報編集</a>
                     </div>
                 </li>
                 </ul>

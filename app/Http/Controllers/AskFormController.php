@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Log;
 use App\Http\Requests\ShowAskForm;
+use App\Http\Requests\AdminAskForm;
 
 class AskFormController extends Controller
 {
@@ -39,21 +40,27 @@ class AskFormController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show_admin(Request $request)
+    public function show_admin(AdminAskForm $request)
     {
         $inputs = $request->all();
-        return view('ask.show_admin', compact('inputs'));
+        return view('ask.show_admin', ['inputs' => $inputs]);
     }
 
 
     public function store(Request $request)
     {
-        $your_name = $request->input('your_name');
-        $my_number = $request->input('my_number');
-        $password = $request->input('password');
-        $birthday = $request->input('birthday');
-        $address = $request->input('address');
-        $gender = $request->input('gender');
+        $askform = new AskForm;
+
+        $askform->your_name = $request->input('your_name');
+        $askform->my_number = $request->input('my_number');
+        $askform->password = $request->input('password');
+        $askform->birthday = $request->input('birthday');
+        $askform->address = $request->input('address');
+        $askform->gender = $request->input('gender');
+
+        $askform->save();
+
+        return redirect('ask/create');
 
         // dd($your_name,$my_number,$password,$birthday,$address,$gender );
                 
@@ -65,7 +72,68 @@ class AskFormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */    
-    
+    public function show_edit(Request $request){
+
+        $edit_users = DB::table('ask_forms')
+        ->select('id','my_number','your_name')
+        ->get();
+        
+        return view('ask.show_edit',compact('edit_users'));
+        // dd($edit_users);
+    }
+
+
+    public function show_detail($id){
+
+        $users = AskForm::find($id);
+        
+        
+        return view('ask.show_detail',compact('users'));
+        // dd($users);
+    }
+
+    public function edit($id){
+
+        $users = AskForm::find($id);
+        
+        return view('ask.edit',compact('users'));
+        // dd($users);
+    }
+
+    public function edit_confirm($id)
+    {
+        $users = AskForm::find($id);
+
+        
+
+        return view('ask.edit_confirm',compact('users'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        
+        $askform = AskForm::find($id);
+
+        $askform->your_name = $request->input('your_name');
+        $askform->my_number = $request->input('my_number');
+        $askform->password = $request->input('password');
+        $askform->birthday = $request->input('birthday');
+        $askform->address = $request->input('address');
+        $askform->gender = $request->input('gender');
+
+        $askform->save();
+
+        return redirect('ask/show_edit');
+
+        // dd($your_name,$my_number,$password,$birthday,$address,$gender );
+    }
+
+
+
+
+
+
+
 
     public function show(ShowAskForm $request){
 
@@ -76,8 +144,6 @@ class AskFormController extends Controller
         ->where('my_number', $my_number);})
         ->get();
         
-        //whenで$my_numberがあるとき、whereでクエリと合致しているデータをgetで取得する
-
         return view('ask.show',compact('users'));        
         //dd($users);
     }
@@ -124,11 +190,6 @@ class AskFormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-
-    }
 
     /**
      * Update the specified resource in storage.
@@ -137,10 +198,7 @@ class AskFormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
