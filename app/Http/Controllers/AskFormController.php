@@ -100,13 +100,12 @@ class AskFormController extends Controller
         // dd($users);
     }
 
-    public function edit_confirm($id)
+    public function edit_confirm(Request $request,$id)
     {
-        $users = AskForm::find($id);
 
-        
+        $inputs = $request::all($id);
+        return view('ask.edit_confirm',compact('inputs'));
 
-        return view('ask.edit_confirm',compact('users'));
     }
 
     public function update(Request $request, $id)
