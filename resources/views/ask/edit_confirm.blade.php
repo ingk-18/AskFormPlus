@@ -53,13 +53,14 @@
                       <td>{{ $inputs['gender']}}</td>
                       </tr>
                       </table>
-                      　　 <form method="POST" action="{{url('ask/update',['id' => $inputs->id])}}">
+                      　　 <form method="POST" action="{{url('ask/update',['id'=>$inputs->id])}}">
                             <div class="form-group row mb-8" >
                               <div class="col-md-11" style="text-align:left">
                                 <button type="submit" class="btn btn-primary">{{ __('更新する') }}</button>
                                 <button type="button" onclick="history.back()" class="btn btn-primary">{{ __('戻る') }}</button>
                               </div>
                             </div>
+                        
                         <input type="hidden" name="your_name" value= "{{ $inputs['your_name']}}" >
                         <input type="hidden" name="my_number" value= "{{ $inputs['my_number']}}" >
                         <input type="hidden" name="password" value= "{{ $inputs['password']}}" >

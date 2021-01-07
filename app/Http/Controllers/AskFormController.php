@@ -103,8 +103,10 @@ class AskFormController extends Controller
     public function edit_confirm(Request $request,$id)
     {
 
-        $inputs = $request::all($id);
+        $inputs = $request->all();
         return view('ask.edit_confirm',compact('inputs'));
+
+        // dd($inputs);
 
     }
 
@@ -122,9 +124,9 @@ class AskFormController extends Controller
 
         $askform->save();
 
-        return redirect('ask/show_edit');
+        // return redirect('ask/index');
 
-        // dd($your_name,$my_number,$password,$birthday,$address,$gender );
+        dd($your_name,$my_number,$password,$birthday,$address,$gender );
     }
 
 

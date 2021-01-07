@@ -70,6 +70,7 @@
                                 </button>
                             </div>
                         </div>
+                        <input type="hidden" name="id" value= "{{ $users['id']}}" >
                         {{ csrf_field() }}
                     </form>
                 </div>
