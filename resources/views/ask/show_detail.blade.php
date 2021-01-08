@@ -53,19 +53,45 @@
                       <td>{{ $users->gender }}</td>
                       </tr>
                       </table>
-                      　　 <form method="GET" action="{{url('ask/edit',['id'=>$users->id])}}">
-                            <div class="form-group row mb-8" >
-                              <div class="col-md-11" style="text-align:left">
+                           <!-- <div class="form-inline"> -->
+                      　　 <form method="GET" class=”form-inline” action="{{url('ask/edit',['id'=>$users->id])}}">
+                                <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary">{{ __('変更する') }}</button>
                                 <button type="button" onclick="history.back()" class="btn btn-primary">{{ __('戻る') }}</button>
+                                </div>
+                            </form>
+                          </br>
+                           <form method="POST" class=”form-inline” action="{{url('ask/destroy',['id'=>$users->id])}}" id="delete_{{ $users->id}}">
+                              <div class="col-md-12">
+                              <a href="#" class="btn btn-warning" data-id="{{ $users->id }}" onclick="deletePost(this);" >{{ __('削除する') }}</a>
                               </div>
+                                  {{ csrf_field() }}
+                            </form>
+                            <!-- </div> -->
                             </div>
-
-                        {{ csrf_field() }}
-                    </form>
-                </div>
-                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
         </div>
     </div>
 </div>
+
+<script>
+<!--
+/************************************
+削除ボタンを押してすぐにレコードが削除
+されるのも問題なので、一旦javascriptで
+確認メッセージを流します。
+*************************************/
+//-->
+function deletePost(e) {
+    'use strict';
+    if (confirm('本当に削除していいですか?')) {
+    document.getElementById('delete_' + e.dataset.id).submit();
+    }
+}
+</script>
+
+
 @endsection

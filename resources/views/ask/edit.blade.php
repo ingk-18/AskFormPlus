@@ -27,7 +27,7 @@
                         </div>
 
                         <div class="form-group row text-md-right">
-                            <label for="password" class="col-md-4 col-form-label">{{ __('マイナンバー') }}</label>
+                            <label for="password" class="col-md-4 col-form-label">{{ __('マイナンバー（１２桁）') }}</label>
                             <div class="col-md-4" style="text-align:left">
                                 <input class="form-control" type="text" name="my_number" value="{{ $users->my_number}}">
                             </div>

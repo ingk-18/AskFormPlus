@@ -16,25 +16,47 @@
                 </div>
                 @endif
                 <div class="card-body">
-                　<table class="table">
-                  <thead>
-                    <tr>
+                　<table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">項目</th>
+                          <th scope="col">入力内容</th>
+                        </tr>
+                      </thead>
+                      @foreach($users as $user)
+                      <tr>
+                      <th scope="col">氏名</th>
+                      <td>{{ $user->your_name }}</td>
+                      </tr>
+                     
+
+                      <tr>
                       <th scope="col">マイナンバー</th>
-                      <th scope="col">お名前</th>
+                      <td>{{ $user->my_number }}</td>
+                      </tr>
+
+                      <tr>
+                      <th scope="col">暗証番号</th>
+                      <td>{{ $user->password }}</td>
+                      </tr>
+
+                      <tr>
                       <th scope="col">生年月日</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  @foreach($users as $user)
-                  <tr>
-                  <th>{{ $user->my_number }}</th>
-                  <th>{{ $user->your_name }}</th>
-                  <th>{{ $user->birthday }}</th>
-                  </tr>
-                  @endforeach
-                  </tbody>
-                　</table>
-               　　 <form method="POST" action="{{url('ask/store')}}">
+                      <td>{{ $user->birthday }}</td>
+                      </tr>
+
+                      <tr>
+                      <th scope="col">住所</th>
+                      <td>{{ $user->address }}</td>
+                      </tr>
+
+                      <tr>
+                      <th scope="col">性別</th>
+                      <td>{{ $user->gender }}</td>
+                      </tr>
+                      @endforeach
+                      </table>
+               　　 <form method="POST" action="{{url('ask/consult')}}">
                             <div class="form-group row mb-8" >
                               <div class="col-md-11" style="text-align:left">
                                 <button type="submit" class="btn btn-primary">{{ __('担当者を呼び出す') }}</button>

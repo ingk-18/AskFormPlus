@@ -20,14 +20,14 @@
                         <div class="form-group row text-md-right">
                             <label for="password" class="col-md-4 col-form-label">{{ __('マイナンバー') }}</label>
                             <div class="col-md-4" style="text-align:left">
-                                <input type="text" name="my_number">
+                                <input type="text" class="form-control" name="my_number">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('暗証番号') }}</label>
+                        <div class="form-group row text-md-right">
+                            <label for="password" class="col-md-4 col-form-label">{{ __('暗証番号') }}</label>
 
-                            <div class="col-md-6">
-                                <input type="password" name="password">
+                            <div class="col-md-4">
+                                <input type="password" class="form-control" name="password">
                             </div>
                         </div>
                         <div class="form-group row mb-0">

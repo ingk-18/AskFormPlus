@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('お客様の情報') }}</div>
+                <div class="card-header">{{ __('登録されているお客様') }}</div>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                 <ul>

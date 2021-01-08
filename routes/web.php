@@ -20,16 +20,22 @@ Route::get('/', function () {
 // ]);
 
 Route::get('ask/index','AskFormController@index');
+Route::post('ask/show','AskFormController@show');
+Route::post('ask/consult','AskFormController@consult');
+
 Route::get('ask/create','AskFormController@create');
 Route::post('ask/show_admin','AskFormController@show_admin');
 Route::post('ask/store','AskFormController@store');
+
 Route::get('ask/show_edit','AskFormController@show_edit');
 Route::get('ask/show_detail/{id}','AskFormController@show_detail');
 Route::get('ask/edit/{id}','AskFormController@edit');
 Route::post('ask/edit_confirm/{id}','AskFormController@edit_confirm');
 Route::post('ask/update/{id}','AskFormController@update');
-Route::post('ask/show','AskFormController@show');
-Route::post('ask/consult','AskFormController@consult');
+
+Route::post('ask/destroy/{id}','AskFormController@destroy');
+
+
 
 
 Auth::routes();

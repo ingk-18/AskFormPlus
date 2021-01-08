@@ -61,8 +61,6 @@ class AskFormController extends Controller
         $askform->save();
 
         return redirect('ask/create');
-
-        // dd($your_name,$my_number,$password,$birthday,$address,$gender );
                 
     }
 
@@ -124,9 +122,9 @@ class AskFormController extends Controller
 
         $askform->save();
 
-        // return redirect('ask/index');
+        return redirect('ask/show_edit');
 
-        dd($your_name,$my_number,$password,$birthday,$address,$gender );
+        // dd($askform);
     }
 
 
@@ -160,25 +158,25 @@ class AskFormController extends Controller
 
     $your_name = $users->your_name;
 
-    $call = "マイナンバー".$my_number." ".$your_name."さんからご相談が入っています。担当者は確認してください。";
+        $call = "マイナンバー".$my_number." ".$your_name."さんからご相談が入っています。担当者は確認してください。";
 
-    $msg = ['body' => $call];
+        $msg = ['body' => $call];
 
-    $room = env('CHATWORK_ROOM');
+        $room = env('CHATWORK_ROOM');
 
-    $token = env('CHATWORK_TOKEN');
-    
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_HTTPHEADER,
-                array('X-ChatWorkToken:'.$token));
-    curl_setopt($ch, CURLOPT_URL, "https://api.chatwork.com/v2/rooms/".$room."/messages");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($msg, '', '&'));
-    $result = curl_exec($ch);
-    curl_close($ch);
+        $token = env('CHATWORK_TOKEN');
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HTTPHEADER,
+                    array('X-ChatWorkToken:'.$token));
+        curl_setopt($ch, CURLOPT_URL, "https://api.chatwork.com/v2/rooms/".$room."/messages");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($msg, '', '&'));
+        $result = curl_exec($ch);
+        curl_close($ch);
 
-    return view('ask.consult');
+        return view('ask.consult');
 
     }
 
@@ -209,6 +207,10 @@ class AskFormController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $askform = AskForm::find($id);
+        $askform->delete();
+
+        return redirect('ask/show_edit');
+
     }
 }

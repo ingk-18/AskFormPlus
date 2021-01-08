@@ -53,7 +53,7 @@
                       <td>{{ $inputs['gender']}}</td>
                       </tr>
                       </table>
-                      　　 <form method="POST" action="{{url('ask/update',['id'=>$inputs->id])}}">
+                      　　 <form method="POST" action="{{url('ask/update',$inputs['id'])}}">
                             <div class="form-group row mb-8" >
                               <div class="col-md-11" style="text-align:left">
                                 <button type="submit" class="btn btn-primary">{{ __('更新する') }}</button>
