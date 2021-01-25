@@ -1,0 +1,39 @@
+body {
+  background-color: #486d46;            /* 背景色 */
+  background-image: url("/image/DSC_5461.jpg"); /* 画像 */
+  background-size: cover;               /* 全画面 */
+  background-attachment: fixed;         /* 固定 */
+  background-position: center center;   /* 縦横中央 */
+}
+
+.top-wrapper {
+  padding: 60px 0 20px 0;
+  color: white;
+  text-align: center;
+}
+
+.top-wrapper h1 {
+  font-size: 80px;
+  letter-spacing: 15px;
+}
+
+
+.middle-wrapper {
+  color: white;
+  text-align: center;
+}
+
+.form-group {
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+.bottom-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.main {
+  display: flex;
+}

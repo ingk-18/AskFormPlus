@@ -60,7 +60,7 @@ class AskFormController extends Controller
 
         $askform->save();
 
-        return redirect('ask/create');
+        return redirect('ask/show_edit');
                 
     }
 
@@ -84,8 +84,6 @@ class AskFormController extends Controller
     public function show_detail($id){
 
         $users = AskForm::find($id);
-        
-        
         return view('ask.show_detail',compact('users'));
         // dd($users);
     }

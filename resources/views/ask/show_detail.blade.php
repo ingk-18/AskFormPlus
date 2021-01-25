@@ -53,8 +53,7 @@
                       <td>{{ $users->gender }}</td>
                       </tr>
                       </table>
-                           <!-- <div class="form-inline"> -->
-                      　　 <form method="GET" class=”form-inline” action="{{url('ask/edit',['id'=>$users->id])}}">
+                           　　 <form method="GET" class=”form-inline” action="{{url('ask/edit',['id'=>$users->id])}}">
                                 <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary">{{ __('変更する') }}</button>
                                 <button type="button" onclick="history.back()" class="btn btn-primary">{{ __('戻る') }}</button>
