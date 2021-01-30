@@ -12,12 +12,11 @@ http://cats-latte.work/ask/index
 <br>
 画面下のユーザー及び管理者をご利用ください。
 
-#　機能一覧
+# 機能一覧
 * ログイン機能
 * ユーザー情報編集機能（CRUD）
 * ChatWorkへ自動投稿機能（Charwork API）
 ![名称未設定](https://user-images.githubusercontent.com/64448438/106349502-9fb58780-6311-11eb-92a3-310689b0c9d5.jpg)
-
 
 
 # 使用技術
