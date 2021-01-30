@@ -1,5 +1,6 @@
 # AskForm
-![名称未設定](url("/image/TOP画面.jpg"))
+![名称未設定](https://user-images.githubusercontent.com/64448438/106349478-6715ae00-6311-11eb-8ac8-3f00f015c074.jpg)
+))
 
 # 概要
 本アプリをタブレット等に組み込み、市役所等の各部署窓口に設置して、お客様自身にマイナンバーと暗証番号を入力していただくと、部署内共有のCHATWORKルームに通知が入るため、職員がマイナンバーを基に担当者を検索して対応するというものです。
@@ -15,7 +16,8 @@ http://cats-latte.work/ask/index
 * ログイン機能
 * ユーザー情報編集機能（CRUD）
 * ChatWorkへ自動投稿機能（Charwork API）
-![名称未設定](url("/image/200.jpg"))
+![名称未設定](https://user-images.githubusercontent.com/64448438/106349502-9fb58780-6311-11eb-92a3-310689b0c9d5.jpg)
+
 
 
 # 使用技術
@@ -29,4 +31,4 @@ http://cats-latte.work/ask/index
 * Git, GitHub
 
 # ネットワーク構成図
-![名称未設定](url("/image/AWS構成図.png"))
+![AWS構成図](https://user-images.githubusercontent.com/64448438/106349515-c07ddd00-6311-11eb-910c-903bd5852cc7.png)
