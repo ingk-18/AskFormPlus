@@ -67,7 +67,6 @@
             </div>
             </div>
             <div class="bottom-container">
-            <p></p>
             <p>※コピーしてご利用ください。ユーザー　マイナンバー : 111111111111　暗証番号 : 1234</p>
             <p>管理者　ID : admin　パスワード : 1234</p>
             <p>CHATWORK ROOM : <a href= "https://www.chatwork.com/g/ask_form" target="_blank" >https://www.chatwork.com/g/ask_form</a></p>
