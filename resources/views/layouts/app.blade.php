@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1024">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -20,19 +20,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+<div class="wrap">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #e3f2fd;">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color:white;">
             <div class="container">
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">　
+            <div class="collapse navbar-collapse ">
+                <ul class="navbar-nav mr-auto ">　
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <h3>{{ config('app.name', 'Laravel') }}</h3>
                 </a>
                 </ul>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end">
             　　<ul class="navbar-nav">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown h6">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         管理者メニュー
                     </a>
