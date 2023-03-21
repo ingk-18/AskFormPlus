@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<body background="{{ asset('/image/AdobeStock.jpg') }}" alt="サンプル画像" width="800" height="400">
 <div class="container">
     <div class="row justify-content-center">
-
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('ログイン') }}</div>
+                @if ($errors->any())
+                <div class="alert alert-danger">
                 <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -12,18 +15,18 @@
                 </ul>
                 </div>
                 @endif
-                    <form method="POST" action="{{url('ask/show')}}" >
+                <div class="card-body">
+                <form method="POST" action="{{url('ask/show')}}" >
                         <div class="form-group row text-md-right">
-                            <label for="password" class="col-md-4 col-form-label">{{ __('マイナンバー') }}</label>
+                            <label for="my_number" class="col-md-4 col-form-label">{{ __('マイナンバー') }}</label>
                             <div class="col-md-4" style="text-align:left">
-                                <input type="text" class="form-control" name="my_number">
+                                <input class="form-control" type="text" name="my_number">
                             </div>
                         </div>
-                        <div class="form-group row text-md-right">
-                            <label for="password" class="col-md-4 col-form-label">{{ __('暗証番号') }}</label>
-
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('暗証番号') }}</label>
                             <div class="col-md-4">
-                                <input type="password" class="form-control" name="password">
+                                <input class="form-control" type="password" name="password">
                             </div>
                         </div>
                         <div class="form-group row mb-0">
@@ -35,7 +38,7 @@
                         </div>
                         {{ csrf_field() }}
                     </form>
-                
+                </div>
             </div>
             <br/>
             <br/>

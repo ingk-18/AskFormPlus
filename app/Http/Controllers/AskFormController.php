@@ -19,8 +19,20 @@ class AskFormController extends Controller
      */
     public function index()
     {
-        //
+        //TOP画面
         return view('ask.index');
+    }
+
+    public function require()
+    {
+        //用件選択画面
+        return view('ask.require');
+    }
+
+    public function login()
+    {
+        //用件選択画面
+        return view('ask.login');
     }
 
     /**
@@ -57,11 +69,9 @@ class AskFormController extends Controller
         $askform->birthday = $request->input('birthday');
         $askform->address = $request->input('address');
         $askform->gender = $request->input('gender');
-
         $askform->save();
 
         return redirect('ask/show_edit');
-                
     }
 
     /**
@@ -71,44 +81,32 @@ class AskFormController extends Controller
      * @return \Illuminate\Http\Response
      */    
     public function show_edit(Request $request){
-
         $edit_users = DB::table('ask_forms')
-        ->select('id','my_number','your_name')
-        ->get();
-        
+            ->select('id','my_number','your_name')
+            ->get();
+
         return view('ask.show_edit',compact('edit_users'));
-        // dd($edit_users);
     }
 
 
     public function show_detail($id){
-
         $users = AskForm::find($id);
         return view('ask.show_detail',compact('users'));
-        // dd($users);
     }
 
     public function edit($id){
-
         $users = AskForm::find($id);
-        
         return view('ask.edit',compact('users'));
-        // dd($users);
     }
 
     public function edit_confirm(Request $request,$id)
     {
-
         $inputs = $request->all();
         return view('ask.edit_confirm',compact('inputs'));
-
-        // dd($inputs);
-
     }
 
     public function update(Request $request, $id)
     {
-        
         $askform = AskForm::find($id);
 
         $askform->your_name = $request->input('your_name');
@@ -117,51 +115,35 @@ class AskFormController extends Controller
         $askform->birthday = $request->input('birthday');
         $askform->address = $request->input('address');
         $askform->gender = $request->input('gender');
-
         $askform->save();
 
         return redirect('ask/show_edit');
-
-        // dd($askform);
     }
 
-
-
-
-
-
-
-
     public function show(ShowAskForm $request){
-
         $my_number = $request->input('my_number');
-
         $users = DB::table('ask_forms')
-        ->when($my_number, function ($query) use ($my_number){return $query
-        ->where('my_number', $my_number);})
-        ->get();
-        
-        return view('ask.show',compact('users'));        
-        //dd($users);
+            ->when($my_number, function ($query) use ($my_number){return $query
+            ->where('my_number', $my_number);})
+            ->get();
+
+        return view('ask.show',compact('users'));
     }
     
     public function consult(Request $request){
+        $my_number = $request->input('my_number');
 
-    $my_number = $request->input('my_number');
+        $users = DB::table('ask_forms')
+            ->when($my_number, function ($query) use ($my_number){
+                return $query->where('my_number', $my_number); 
+                })->first();
 
-    $users = DB::table('ask_forms')
-    ->when($my_number, function ($query) use ($my_number){
-        return $query->where('my_number', $my_number); 
-        })->first();
-
-    $your_name = $users->your_name;
+        $your_name = $users->your_name;
 
         $call = "マイナンバー".$my_number." ".$your_name."さんからご相談が入っています。担当者は確認してください。";
-
         $msg = ['body' => $call];
 
         $room = env('CHATWORK_ROOM');
-
         $token = env('CHATWORK_TOKEN');
         
         $ch = curl_init();
@@ -175,27 +157,7 @@ class AskFormController extends Controller
         curl_close($ch);
 
         return view('ask.consult');
-
     }
-
-
-            
-            
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
 
     /**
      * Remove the specified resource from storage.
@@ -207,8 +169,6 @@ class AskFormController extends Controller
     {
         $askform = AskForm::find($id);
         $askform->delete();
-
         return redirect('ask/show_edit');
-
     }
 }

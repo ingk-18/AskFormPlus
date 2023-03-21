@@ -19,13 +19,15 @@ Route::get('/', function () {
 //     'index','show'
 // ]);
 
-//アプリ機能使用
-Route::get('ask/index','AskFormController@index');
-Route::post('ask/show','AskFormController@show');
-Route::post('ask/consult','AskFormController@consult');
+//ユーザーサイド
+    Route::get('ask/index','AskFormController@index');
+    Route::get('ask/require','AskFormController@require');
+    Route::get('ask/login','AskFormController@login');
+    Route::post('ask/show','AskFormController@show');
+    Route::post('ask/consult','AskFormController@consult');
 
 
-
+//adminサイド
 //ベーシック認証
 Route::group(['middleware' => 'basicauth'], function() {
     //ユーザー登録

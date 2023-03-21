@@ -1,0 +1,71 @@
+<mxfile host="65bd71144e" modified="2021-02-28T05:40:37.299Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="PsfLF-U9f9S0OGaTIb-R" version="14.2.4" type="embed">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="661" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=19;" parent="1" target="41" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="375.0588235294117" y="250" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" value="" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;align=left;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="60" width="420" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="0iTI7bKBJ6JELypw6VL1-79" value="対応する" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="415" y="310" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="xsVDTVftM3OOLQT2cAot-39" value="順番待ちユーザーリスト" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="105" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=19;" parent="1" source="xsVDTVftM3OOLQT2cAot-42" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1230" y="207.17647058823536" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xsVDTVftM3OOLQT2cAot-42" value="" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;align=left;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="60" width="350" height="155" as="geometry"/>
+                </mxCell>
+                <mxCell id="xsVDTVftM3OOLQT2cAot-46" value="本当に呼び出しますか？" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="705" y="122.5" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="xsVDTVftM3OOLQT2cAot-47" value="確認画面" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="75" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="xsVDTVftM3OOLQT2cAot-55" value="対応する" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="170" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;span style=&quot;color: rgb(240 , 240 , 240) ; font-family: &amp;#34;helvetica&amp;#34; ; font-size: 19px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(42 , 42 , 42) ; float: none ; display: inline&quot;&gt;氏名　マイナンバ　住所　チェックボックス&lt;br style=&quot;font-size: 19px&quot;&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="170" width="430" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="ショートメールで通知" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=19;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="236" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="TOP画面(index)&lt;br style=&quot;font-size: 13px&quot;&gt;&lt;br style=&quot;font-size: 13px&quot;&gt;・アプリの概要&lt;br style=&quot;font-size: 13px&quot;&gt;&lt;br style=&quot;font-size: 13px&quot;&gt;・受付ボタン&lt;br&gt;&lt;br&gt;・待ち人数" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="550" width="240" height="245" as="geometry"/>
+                </mxCell>
+                <mxCell id="117" value="用件選択画面(require)&lt;br style=&quot;font-size: 13px&quot;&gt;&lt;br style=&quot;font-size: 13px&quot;&gt;・支払い、相談、口座情報の確認、その他" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="550" width="240" height="245" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="" style="endArrow=classic;html=1;fontSize=13;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="380" y="681.24" as="sourcePoint"/>
+                        <mxPoint x="510" y="681.24" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="120" value="" style="endArrow=classic;html=1;fontSize=13;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="890" y="681.83" as="sourcePoint"/>
+                        <mxPoint x="1020" y="681.83" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="121" value="管理者" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=39;" parent="1" vertex="1">
+                    <mxGeometry x="5" y="5" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" value="ユーザー" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=39;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="460" width="170" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

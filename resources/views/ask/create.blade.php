@@ -48,7 +48,6 @@
                         <div class="form-group row text-md-right">
                             <label for="password" class="col-md-4 col-form-label">{{ __('住所') }}</label>
                             <div class="col-md-8" style="text-align:left">
-                                <!-- <input type="text" name="address"> -->
                                 <input class="form-control" type="text" name="address">
                             </div>
                         </div>

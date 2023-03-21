@@ -37,15 +37,28 @@
                     
                     <div class="col-sm-3 col-xs-3  offset-3">
                     <div class="card text-center">
-                    <div class="card-header">{{ __('受付') }}</div>
-                    <form method="GET" action="{{url('ask/require')}}">
+                    <div class="card-header">{{ __('マイナンバーを入力') }}</div>
+                    <form method="POST" action="{{url('ask/show')}}" >
+                        <div class="form-group text-md-center">
+                            <div class="col-md-10 offset-1" style="text-center">
+                                <!-- フォームを追加 -->
+                                <input type="text" class="form-control" name="my_number" placeholder="マイナンバー（12桁）">
+                            </div>
+                        </div>
+                        <div class="form-group row text-center">
+                            <div class="col-md-10 offset-1">
+                                <input type="password" class="form-control" name="password" placeholder="暗証番号（４桁）">
+                            </div>
+                            </div>
                             <div class="form-group row text-md-right">
                             <div class="col-md-10 offset-1">
-                            <button type="submit" class="btn btn-primary col-md-12">{{ __('受付する') }}</button>
+                            <button type="submit" class="btn btn-primary col-md-12">{{ __('ログイン') }}</button>
                             </div>
                             </div>
+                        </div>
                         {{ csrf_field() }}
                     </form>
+                    </div>
                     </div>
                     </div>
                     </div>
